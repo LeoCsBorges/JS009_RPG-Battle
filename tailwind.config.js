@@ -2,7 +2,12 @@
 export default {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        marker: ["Permanent Marker", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 };

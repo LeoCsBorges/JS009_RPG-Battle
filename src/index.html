@@ -1,21 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./output.css" rel="stylesheet" />
+    <title>Battle of Heroes</title>
   </head>
-  <body>
-    <div
-      class="mt-10 mx-auto p-4 border-4 font-extrabold border-black rounded-lg text-blue-600 text-2xl w-max bg-red-200 cursor-pointer hover:scale-150 transition-all duration-1000"
-    >
-      HELLOW WORLD!
-    </div>
+  <body
+    class="bg-gradient-to-b from-purple-400 to-yellow-200 bg-no-repeat font-poppins"
+  >
+    <div class="container m-auto">
+      <header
+        class="h-[240px] bg-[url('./assets/images/insignia.png')] bg-no-repeat bg-center flex flex-row justify-center items-end"
+      >
+        <h1 class="main-title">Battle of Heroes</h1>
+      </header>
 
-    <h1
-      class="m-auto mt-10 underline text-2xl text-green-700 w-max border border-slate-900 p-2 rounded-xl shadow-md"
-    >
-      Testando e iniciando um projeto em tailwindCSS
-    </h1>
+      <main>
+        <!-- Creating your hero -->
+        <section class="p-4 my-10">
+          <!-- section header -->
+          <div class="flex justify-center items-center mb-2">
+            <img class="h-16 -scale-x-100 -rotate-3 drop-shadow-md opacity-85"
+            src="assets/images/torch.png" alt= />
+            <h2 class="text-3xl font-bold text-white drop-shadow-md self-end">
+              Create Your Hero
+            </h2>
+            <img
+              class="h-16 rotate-3 drop-shadow-md opacity-85"
+              src="assets/images/torch.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="m-auto h-[2px] w-4/5 bg-white mb-8 drop-shadow-lg opacity-50"
+          ></div>
+
+          <!-- form container -->
+          <div class="flex justify-center items-center">
+            <form
+              class="w-full sm:w-4/5 md:w-3/5 min-w-56 flex flex-col"
+              id="heroCreating"
+              action="#"
+            >
+              <!-- [ FORM TOP  HALF] -->
+              <div class="flex gap-2">
+                <!-- Hero name  & class -->
+                <div class="w-1/2">
+                  <label class="form-label">
+                    <h2 class="form-title">Hero's name</h2>
+                    <input
+                      class="form-input"
+                      type="text"
+                      id="heroName"
+                      minlength="3"
+                      maxlength="18"
+                    />
+                  </label>
+
+                  <label class="form-label">
+                    <h2 class="form-title">Chose your class</h2>
+                    <select id="heroClass" class="form-input select-none">
+                      <option value="knight">Knight</option>
+                      <option value="archer">Archer</option>
+                      <option value="mage">Mage</option>
+                    </select>
+                  </label>
+                </div>
+
+                <!-- Hero avatar -->
+                <div class="w-1/2 px-4 py-2">
+                  <div
+                    class="m-auto max-w-[142px] h-full border-2 border-purple-800 rounded-md shadow-md shadow-yellow-100 overflow-hidden"
+                  >
+                    <img
+                      src="assets/images/knight-avatar.jpg"
+                      alt="Knight's avatar"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- [ FORM BOTTOM  HALF] -->
+              <fieldset class="form-label w-full">
+                <legend class="form-title mb-2">Build your status</legend>
+                <!-- Hero status -->
+                <!-- 
+                  knight: strength & vigor
+                  archer: dexterity & agility
+                  mage: intellect & spirit 
+                -->
+                <div class="flex">
+                  <!-- points UI -->
+                  <div class="w-1/2 flex flex-col gap-4">
+                    <!-- attack status -->
+                    <div class="min-w-36 self-center">
+                      <div
+                        class="text-sm uppercase mb-1 text-center text-purple-700"
+                      >
+                        Strength
+                      </div>
+                      <div class="h-6 flex bg-white bg-opacity-75">
+                        <button
+                          class="w-[20%] bg-purple-900 text-white before:content-['-'] select-none"
+                        ></button>
+                        <div class="flex-grow text-center font-semibold">1</div>
+                        <button
+                          class="w-[20%] bg-purple-900 text-white before:content-['+'] select-none"
+                        ></button>
+                      </div>
+                    </div>
+
+                    <!-- defense status -->
+                    <div class="min-w-36 self-center">
+                      <div
+                        class="text-sm uppercase mb-1 text-center text-purple-700"
+                      >
+                        Vigor
+                      </div>
+                      <div class="h-6 flex bg-white bg-opacity-75">
+                        <button
+                          class="w-[20%] bg-purple-900 text-white before:content-['-'] select-none"
+                        ></button>
+                        <div class="flex-grow text-center font-semibold">1</div>
+                        <button
+                          class="w-[20%] bg-purple-900 text-white before:content-['+'] select-none"
+                        ></button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- points remainig -->
+                  <div
+                    class="w-1/2 flex flex-col gap-1 justify-center items-center"
+                  >
+                    <div class="build-points">7</div>
+                    <p class="text-xs text-yellow-800">points remaining</p>
+                  </div>
+                </div>
+              </fieldset>
+
+              <!-- [ FORM SUBMIT ] -->
+              <input
+                id="heroCreatingButton"
+                class="w-full max-w-72 self-center mt-8 border border-yellow-800 p-2 text-purple-700 text-xl font-semibold rounded-lg cursor-pointer select-none bg-gradient-to-b from-yellow-100 from-5% to-yellow-400 shadow-md hover:scale-105 transition-all duration-200"
+                type="submit"
+                value="Create Hero"
+              />
+            </form>
+          </div>
+        </section>
+
+        <!-- Displaying created heros -->
+        <section>
+          <div class="opacity-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident
+            numquam expedita dicta quisquam. Ad similique quo esse a, officia
+            quam expedita voluptate quasi architecto eos rem aliquam eius beatae
+            aliquid dolor at vel neque nobis voluptatum nisi, provident
+            aspernatur! Accusamus soluta, laborum accusantium eius sit culpa
+            consequatur ab! In fuga ea nihil modi, facere cum odit delectus sit!
+            In voluptate quia voluptatibus commodi facilis quasi ducimus,
+            ratione quaerat vitae repellat neque, assumenda praesentium dicta
+            tempora molestiae libero officiis expedita voluptates reprehenderit
+            consequatur laboriosam quisquam magni, officia modi? Maxime nemo
+            reprehenderit eos. Fugiat quam nulla perferendis repellat. Tenetur
+            similique iusto facere, repellendus aliquid, quia placeat
+            consequatur fuga libero cumque iure pariatur eius omnis
+            necessitatibus voluptas quo totam quod ullam dolor. Rerum vero odit,
+            magni eos tempore quis debitis cupiditate similique mollitia
+            reprehenderit inventore, esse ipsum. Illo harum natus at nobis
+            voluptate nulla inventore ratione? Voluptates minima iusto, tempore
+            delectus alias enim necessitatibus, unde, vel officiis hic
+            voluptatum. Itaque placeat atque minus saepe explicabo ipsam harum
+            recusandae a accusamus molestias aut magnam repellat illum quasi
+            veniam deserunt nam nisi, adipisci quaerat! Expedita quae quam
+            reprehenderit sit ducimus vero placeat tempora explicabo ipsam,
+            aspernatur eius distinctio dicta. Facilis tempora non rem, officiis
+            recusandae fugit adipisci aliquam voluptas excepturi aut architecto
+            quibusdam sed ex eligendi ratione esse repellendus. Hic doloremque
+            non unde pariatur harum consectetur sequi dolores, aperiam velit
+            inventore suscipit deserunt obcaecati illum?
+          </div>
+        </section>
+
+        <!-- Displaying battle result -->
+        <section></section>
+      </main>
+
+      <footer></footer>
+    </div>
   </body>
 </html>
