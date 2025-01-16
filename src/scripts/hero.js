@@ -46,12 +46,33 @@ const hero = {
   },
 
   changeHeroAttribute(element) {
-    // recuperar a quantidade de pontos para ser distribuida
-    // pegar o element passado
-    // ver qual o atributo (ataque ou defesa)
-    // ver qual a funcionalidade (adicionar ou dimuir)
-    // **nao permitir atributo menor que 1
-    console.log(element);
+    const pointsRemainingElement = document.querySelector(".build-points");
+    let pointsRemaining = Number(pointsRemainingElement.innerHTML);
+    const attributeStatusElement = document.querySelector(
+      `#${element.dataset.status}-status`
+    );
+    const attributeStatus = Number(attributeStatusElement.innerHTML);
+
+    //attribute 1
+    if (
+      (attributeStatus === 1 && element.dataset.role === "sub") ||
+      (pointsRemaining === 0 && element.dataset.role === "add")
+    ) {
+      return;
+    }
+
+    //adding status
+    if (element.dataset.role === "add") {
+      attributeStatusElement.innerHTML = attributeStatus + 1;
+      pointsRemaining -= 1;
+      pointsRemainingElement.innerHTML = pointsRemaining;
+
+      //subtracting status
+    } else {
+      attributeStatusElement.innerHTML = attributeStatus - 1;
+      pointsRemaining += 1;
+      pointsRemainingElement.innerHTML = pointsRemaining;
+    }
   },
 };
 
