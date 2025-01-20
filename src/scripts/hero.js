@@ -15,6 +15,7 @@ const heroesAttributes = [
     defAttribute: "spirit",
   },
 ];
+const heroes = [];
 
 const hero = {
   changeHeroAvatar(heroClass) {
@@ -74,6 +75,93 @@ const hero = {
       pointsRemainingElement.innerHTML = pointsRemaining;
     }
   },
+
+  heroCreate() {
+    const heroName = document.querySelector("#heroName").value;
+    const heroClass = document.querySelector("#heroClass").value;
+    const attPoints = Number(
+      document.querySelector("#attack-status").innerHTML
+    );
+    const defPoints = Number(
+      document.querySelector("#defense-status").innerHTML
+    );
+
+    //two heroes maximium
+    if (heroes.length > 2) {
+      console.log("2 heroes");
+      return;
+    }
+
+    let myHero;
+    if (heroClass === "knight") {
+      myHero = new Knight(heroName, "strengh", "vigor", attPoints, defPoints);
+    }
+    if (heroClass === "archer") {
+      myHero = new Archer(
+        heroName,
+        "dexterity",
+        "agility",
+        attPoints,
+        defPoints
+      );
+    }
+    if (heroClass === "mage") {
+      myHero = new Mage(heroName, "intellect", "spirit", attPoints, defPoints);
+    }
+
+    heroes.push(myHero);
+  },
+
+  heroesBattle() {
+    if (heroes.length < 2) {
+      return `Error: two heroes are needed to battle`;
+    }
+    return [...heroes];
+  },
+
+  getHeroes() {
+    return [...heroes];
+  },
 };
+
+class Hero {
+  constructor(name, heroClass, attAttribute, defAttribute) {
+    this.name = name;
+    this.class = heroClass;
+    this.attAttribute = attAttribute;
+    this.defAttribute = defAttribute;
+  }
+
+  showInfo() {
+    return `name: ${this.name}, hero class: ${this.class}`;
+  }
+}
+
+class Knight extends Hero {
+  constructor(name, attAttribute, defAttribute, attPoints, defPoints) {
+    super(name, "knight", attAttribute, defAttribute);
+    this.attack = attPoints;
+    this.defense = defPoints;
+    this.color = "darkred";
+  }
+}
+
+class Archer extends Hero {
+  constructor(name, attAttribute, defAttribute, attPoints, defPoints) {
+    super(name, "archer", attAttribute, defAttribute);
+    this.attack = attPoints;
+    this.defense = defPoints;
+    this.color = "darkgreen";
+  }
+}
+
+class Mage extends Hero {
+  constructor(name, attAttribute, defAttribute, attPoints, defPoints) {
+    super(name, "mage", attAttribute, defAttribute);
+    this.attack = attPoints;
+    this.defense = defPoints;
+    this.color = "darkblue";
+  }
+}
 
 export default hero;

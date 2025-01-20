@@ -6,11 +6,11 @@
 
 @layer components {
   .main-title {
-    @apply text-5xl sm:text-6xl lg:text-7xl;
+    @apply text-5xl sm:text-6xl lg:text-7xl text-center;
     font-family: "Permanent Marker", serif;
     line-height: 1;
-    color: #fce301;
-    text-shadow: -1px -1px rgb(255, 255, 255), 2px 2px purple,
+    color: #e7d103;
+    text-shadow: -1px -1px rgb(136, 45, 255), 2px 2px rgb(48, 49, 0),
       4px 4px 4px rgba(0, 0, 0, 0.4);
   }
 
@@ -19,11 +19,11 @@
   }
 
   .form-title {
-    @apply font-medium text-lg text-purple-800;
+    @apply font-medium text-lg text-yellow-300;
   }
 
   .form-input {
-    @apply py-1 text-center rounded-md text-yellow-900 bg-white bg-opacity-40 outline-none focus:outline-2 focus:outline-white;
+    @apply py-1 text-center rounded-md text-purple-600 bg-white bg-opacity-80 outline-none focus:outline-2 focus:outline-yellow-100;
   }
 
   .build-points {
